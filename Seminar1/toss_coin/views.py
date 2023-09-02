@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from random import randint
 import logging
 
+from toss_coin.models import GameModel
 
 logger = logging.getLogger(__name__)
 
@@ -10,7 +11,14 @@ logger = logging.getLogger(__name__)
 def head_tails(request):
     result = 'Head' if randint(0, 1) else 'Tails'
     logger.info(result)
+    game = GameModel(result=result)
+    game.save()
     return HttpResponse(result)
+
+
+def last_games(request):
+    last = GameModel().return_last(5)
+    return HttpResponse(last)
 
 
 def dice(request):

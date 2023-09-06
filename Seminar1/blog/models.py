@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Manager
+from django.urls import reverse
 
 
 class Author(models.Model):
@@ -30,6 +31,9 @@ class Post(models.Model):
     published = models.BooleanField(default=False)
 
     objects = Manager()
+
+    def get_absolute_url(self):
+        return reverse('detail_post', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f'{self.title} {self.content}'

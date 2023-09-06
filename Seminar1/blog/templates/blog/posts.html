@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<ul>
+    {% for result in results %}
+    {% if result.published %}
+    <li><a href="{% url 'detail_post' result.pk %}">{{ result.title }}</a></li>
+    <li><a href="{{ result.get_absolute_url }}">{{ result.title }}</a></li>
+    {% else %}
+    <li>{{ result.title }}</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

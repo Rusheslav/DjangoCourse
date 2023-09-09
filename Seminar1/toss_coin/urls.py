@@ -6,4 +6,5 @@ urlpatterns = [
     path('dice/<int:count>', views.Dice.as_view(), name='dice'),
     path('randomize/<int:count>', views.Randomize.as_view(), name='randomize'),
     path('last_games', views.last_games, name='last_games'),
+    path('choose_game', views.ChooseGame.as_view(), name='choose_game'),
 ]

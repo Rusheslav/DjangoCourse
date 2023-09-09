@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models import Manager
+from django.urls import reverse
 
 
 class Client(models.Model):
@@ -23,6 +24,9 @@ class Product(models.Model):
     added_date = models.DateTimeField(auto_now_add=True)
 
     objects = Manager()
+
+    def get_absolute_url(self):
+        return reverse('shop:product', kwargs={'pk': self.pk})
 
     def __str__(self):
         return f'{self.name} - {self.price}'

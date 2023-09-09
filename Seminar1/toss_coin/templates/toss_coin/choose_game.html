@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit" value="Отправить">
+</form>
+<br>
+<br>
+{% if results %}
+{% for result in results %}
+<table>
+    <tr><td>{{ result }}</td></tr>
+</table>
+{% endfor %}
+{% endif %}
+{% endblock %}

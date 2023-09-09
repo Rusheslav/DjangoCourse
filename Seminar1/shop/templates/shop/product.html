@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} {{ product.name }} {% endblock %}
+
+{% block content %}
+<h3> {{ product.name }} </h3>
+<table>
+    <tr><td>Наименование:</td><td>{{ product.name }}</td></tr>
+    <tr><td>Описание:</td><td>{{ product.description }}</td></tr>
+    <tr><td>Цена:</td><td>{{ product.price }}</td></tr>
+    <tr><td>Количество:</td><td>{{ product.amount }}</td></tr>
+    <tr><td>Дата добавления:</td><td>{{ product.added_date }}</td></tr>
+</table>
+{% endblock %}

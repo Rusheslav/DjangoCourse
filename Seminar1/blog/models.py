@@ -42,7 +42,7 @@ class Post(models.Model):
         return reverse('blog:detail_post', kwargs={'pk': self.pk})
 
     def __str__(self):
-        return f'{self.title} {self.content}'
+        return f'{self.title}'
 
 
 class Comment(models.Model):

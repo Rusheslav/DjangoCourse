@@ -23,5 +23,6 @@ urlpatterns = [
     path('', include('my_app.urls')),
     path('toss/', include('toss_coin.urls')),
     path('blog/', include('blog.urls')),
-    path('shop/', include('shop.urls'))
+    path('shop/', include('shop.urls')),
+    # path('__debug__/', include("debug_toolbar.urls")),
 ]
